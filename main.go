@@ -8,15 +8,25 @@ import(
 func main(){
 	if len(os.Args) != 2{
 		fmt.Println("ATTENTION: expecting >> go run . [string]")
-		os.Exit(0)
+		os.Exit(1)
 	}
 
-	// input: os.Args[1]
+	input := os.Args[1]
 
-	// data, err:= os.Reader(input)
-	// if err != nil{
-	// 	fmt.Println("ATTENTION: failed to load banner file:%v")
-	// }
+	data, err:= os.ReadFile("banner.txt")
+	if err != nil{
+		fmt.Printf("ATTENTION: failed to load banner file:%v%v", input, "banner.txt", err)
+		os.Exit(1)
+	}
+
+	file := string(data)
+
+	err := os.WriteFile(input)
+	if err != nil{
+		fmt.Printf("ATTENTION: failed to write banner file:%v%v", input, "banner.txt", err)
+		os.Exit(1)
+	}
+
 
 	fmt.Println("Successfull")
 }
