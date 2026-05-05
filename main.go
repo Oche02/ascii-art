@@ -14,8 +14,10 @@ func main(){
 	if input == ""{
 		os.Exit(0)
 	}
-
-
+	if input == "\n"{
+		fmt.Print("\n")
+		os.Exit(0)
+	}
 	// data, err:= os.ReadFile("banner.txt")
 	// if err != nil{
 	// 	fmt.Printf("ATTENTION: failed to load banner file:%v%v", input, "banner.txt", err)
