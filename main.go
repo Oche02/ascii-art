@@ -3,6 +3,7 @@ package main
 import(
 	"os"
 	"fmt"
+	"strings"
 )
 
 func main(){
@@ -14,6 +15,7 @@ func main(){
 	if input == ""{
 		os.Exit(0)
 	}
+	input = strings.ReplaceAll(input, `\n`, "\n")
 	if input == "\n"{
 		fmt.Print("\n")
 		os.Exit(0)
