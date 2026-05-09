@@ -4,6 +4,8 @@ import(
 	"os"
 	"fmt"
 	"strings"
+
+	"ascii-art/ascii"
 )
 
 func main(){
@@ -20,11 +22,11 @@ func main(){
 		fmt.Print("\n")
 		os.Exit(0)
 	}
-	// data, err:= os.ReadFile("banner.txt")
-	// if err != nil{
-	// 	fmt.Printf("ATTENTION: failed to load banner file:%v%v", input, "banner.txt", err)
-	// 	os.Exit(1)
-	// }
+	charMap, err:= ascii.LoadBanner("banner/standard.txt")
+	if err != nil{
+	    fmt.Printf("ATTENTION: failed to load banner file:%v\n", input, "banner.txt", err)
+	 	os.Exit(1)
+	}
 
 	// file := string(data)
 
