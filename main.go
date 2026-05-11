@@ -27,15 +27,7 @@ func main(){
 	    fmt.Printf("ATTENTION: failed to load banner file:%v\n", input, "banner.txt", err)
 	 	os.Exit(1)
 	}
-
-	// file := string(data)
-
-	// err := os.WriteFile(input)
-	// if err != nil{
-	// 	fmt.Printf("ATTENTION: failed to write banner file:%v%v", input, "banner.txt", err)
-	// 	os.Exit(1)
-	// }
-
-
-	fmt.Println("\nSuccessfull")
+	output:= ascii.LoadRender(input, charMap)
+	fmt.Println(output)
+	os.Exit(0)
 }
