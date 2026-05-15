@@ -12,4 +12,7 @@ func LoadBanner(filePath string)(map[rune][]string, error){
 		fmt.Fprintf(os.Stderr, "failed to read banner file %v\n", err)
 		os.Exit(1)
 	}
+	convert := string(data)
+	content := strings.ReplaceAll(convert, "\r\n, \n")
+	lines := strings.Split(content,"\n")
 }
