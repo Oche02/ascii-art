@@ -1,33 +1,38 @@
 package main
 
-import(
-	"os"
+import (
 	"fmt"
+	"os"
 	"strings"
-
-	"ascii-art/ascii"
 )
 
-func main(){
-	if len(os.Args) != 2{
-		fmt.Println("ATTENTION: expecting >> go run . [string]")
-		os.Exit(1)
+func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("Error: Expecting>> go run . [string] Or go run . [string] [banner]")
+		return
+	}
+	bannerfile := "standard.txt"
+	if len(os.Args) == 3 {
+		bannerfile = os.Args[2] + ".txt"
 	}
 	input := os.Args[1]
-	if input == ""{
-		os.Exit(0)
+	if input == "" {
+		return
+
 	}
-	input = strings.ReplaceAll(input, `\n`, "\n")
-	if input == "\n"{
-		fmt.Print("\n")
-		os.Exit(0)
+	if input == "\\n" {
+		fmt.Println()
+		return
 	}
-	charMap, err:= ascii.LoadBanner("banner/standard.txt")
-	if err != nil{
-	    fmt.Printf("ATTENTION: failed to load banner file:%v\n", input, "banner.txt", err)
-	 	os.Exit(1)
+
+	banner, err := LoadBanner(bannerfile)
+	if err != nil {
+		return
 	}
-	output:= ascii.LoadRender(input, charMap)
-	fmt.Println(output)
-	os.Exit(0)
+	output := GenerateArt(input, banner)
+	if strings.HasSuffix(output, "\n") {
+		output = strings.TrimSuffix(output, "\n")
+		fmt.Println(output)
+	}
+
 }
