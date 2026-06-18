@@ -16,7 +16,6 @@ Written in Go.
 * generateart.go
 * render.go
 * split.go
-* validate.go
 * go.mod
 * README.md
 
