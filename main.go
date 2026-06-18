@@ -11,6 +11,10 @@ func main() {
 		fmt.Println("Error: Expecting>> go run . [string] Or go run . [string] [banner]")
 		return
 	}
+	if len(os.Args) > 3 {
+		fmt.Println("Error: Expecting>> go run . [string] Or go run . [string] [banner]")
+		return
+	}
 	bannerfile := "standard.txt"
 	if len(os.Args) == 3 {
 		bannerfile = os.Args[2] + ".txt"
