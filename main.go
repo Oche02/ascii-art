@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
+	//"strings"
 )
 
 func main() {
@@ -34,9 +34,10 @@ func main() {
 		return
 	}
 	output := GenerateArt(input, banner)
-	if strings.HasSuffix(output, "\n") {
-		output = strings.TrimSuffix(output, "\n")
-		fmt.Println(output)
-	}
+	fmt.Print(output)
+	// if strings.HasSuffix(output, "\n") {
+	// 	output = strings.TrimSuffix(output, "\n")
+	// 	fmt.Println(output)
+	// }
 
 }
